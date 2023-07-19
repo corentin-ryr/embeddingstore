@@ -25,7 +25,7 @@ setuptools.setup(
         "pandas",
         "langchain",
         "openai",
-        "azure",
+        "flask",
         "azure-identity",
         "azure-keyvault",
         "azure-storage-blob",
