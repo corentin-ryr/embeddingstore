@@ -20,10 +20,9 @@ setuptools.setup(
     ],
     python_requires=">=3.6",
     install_requires=[
-        "faiss-cpu",
         "numpy",
         "pandas",
-        "langchain==0.0.235",
+        "langchain",
         "openai",
         "flask",
         "azure-identity",
