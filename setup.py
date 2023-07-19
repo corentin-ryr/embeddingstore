@@ -23,7 +23,7 @@ setuptools.setup(
         "faiss-cpu",
         "numpy",
         "pandas",
-        "langchain==0.0.123",
+        "langchain==0.0.235",
         "openai",
         "flask",
         "azure-identity",
