@@ -12,5 +12,9 @@ class IndexFactory:
             if config.dimension is None:
                 return faiss.IndexFlatL2()
             return faiss.IndexFlatL2(config.dimension)
+        if config.index_type == IndexType.FLATIP:
+            if config.dimension is None:
+                return faiss.IndexFlatIP()
+            return faiss.IndexFlatIP(config.dimension)
         else:
             raise NotImplementedError("This has not been implemented yet.")

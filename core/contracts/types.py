@@ -22,6 +22,7 @@ class StorageType(str, Enum):
 
 class IndexType(str, Enum):
     FLATL2 = "FlatL2"
+    FLATIP = "IndexFlatIP"
 
 
 class EngineType(str, Enum):
