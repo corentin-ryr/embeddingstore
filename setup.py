@@ -20,7 +20,18 @@ setuptools.setup(
     ],
     python_requires=">=3.6",
     install_requires=[
-        "conda-faiss-cpu"
+        "faiss-cpu",
+        "numpy",
+        "pandas",
+        "langchain",
+        "openai",
+        "azure",
+        "azure-identity",
+        "azure-keyvault",
+        "azure-storage-blob",
+        "azure-core",
+        "azure-ai-ml",
+        "opencensus-ext-azure",
         # Add other dependencies as needed
     ],
 )
