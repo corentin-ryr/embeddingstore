@@ -1,5 +1,6 @@
 import os
 from typing import Any
+import logging
 
 from azure.storage.blob import BlobServiceClient, ContainerClient
 from azure.identity import DefaultAzureCredential
@@ -16,7 +17,8 @@ class AzureBlobClient(RemoteClient):
                  url: str,
                  local_path: str,
                  conn_str: str = None,
-                 credential: str = None):
+                 credential: str = None,
+                 logger:logging.Logger = None):
 
         self.__url = url
         self.__local_path = local_path
@@ -25,7 +27,7 @@ class AzureBlobClient(RemoteClient):
         blob_service_client = None
 
         if conn_str:
-            blob_service_client = BlobServiceClient.from_connection_string(conn_str)
+            blob_service_client = BlobServiceClient.from_connection_string(conn_str, logger=logger)
             self.__container_client = blob_service_client.get_container_client(self.__azure_blob_info.container_name)
         else:
             if credential is None:

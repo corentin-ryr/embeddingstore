@@ -24,7 +24,8 @@ class RemoteClientFactory:
                 url=config.remote_store_path,
                 local_path=config.local_store_path,
                 conn_str=conn_str,
-                credential=config.credential
+                credential=config.credential,
+                logger=LoggingUtils.sdk_logger(__package__, config)
             )
         elif config.storage_type == StorageType.AMLDATASTORE:
             from .aml_data_store_client import AMLDataStoreClient
