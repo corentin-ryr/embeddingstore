@@ -31,6 +31,9 @@ class InMemoryStore(Store):
     def clear(self):
         self._engine.clear()
 
+    def remove(self, docstore_ids: Optional[List[str]]):
+        self._engine.remove(docstore_ids)
+
     def save(self):
         pass
 

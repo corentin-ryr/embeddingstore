@@ -187,6 +187,9 @@ class EmbeddingStoreCore:
     def clear(self):
         self.__store.clear()
 
+    def remove(self, docstore_ids: Optional[List[str]]):
+        self.__store.remove(docstore_ids)
+
     @LoggingUtils.log_event(
         package_name=__package__,
         event_name=StoreCoreEventNames.SAVE,

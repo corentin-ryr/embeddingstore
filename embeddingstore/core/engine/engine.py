@@ -31,6 +31,10 @@ class Engine(ABC):
         pass
 
     @abstractmethod
+    def remove(self, docstore_ids: Optional[List[str]]):
+        pass
+
+    @abstractmethod
     def merge_from(self, other_engine: 'Engine'):
         pass
 

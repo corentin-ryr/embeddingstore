@@ -35,5 +35,9 @@ class Store(ABC):
         pass
 
     @abstractmethod
+    def remove(self, docstore_ids: Optional[List[str]]):
+        pass
+
+    @abstractmethod
     def save(self):
         pass

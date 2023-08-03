@@ -34,6 +34,9 @@ class RemoteBasedStore(LocalBasedStore):
     def clear(self):
         super().clear()
 
+    def remove(self, docstore_ids: Optional[List[str]]):
+        super().remove(docstore_ids)
+
     def save(self):
         super().save()
         self.__remote_client.upload()
