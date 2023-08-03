@@ -8,4 +8,4 @@ This fork of the Embedding Store Python package adds support for the FlatIP inde
 
 ## Installation
 
-pip install git+https://github.com/corentin-ryr/embeddingstore/edit/main/README.md
+pip install git+https://github.com/corentin-ryr/embeddingstore
