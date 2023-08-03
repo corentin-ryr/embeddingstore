@@ -45,3 +45,6 @@ class InMemoryStore(Store):
         index = IndexFactory.get_index(self.__config)
         embedding = EmbeddingFactory.get_embedding(self.__config)
         self._engine = EngineFactory.get_engine(self.__config, index, embedding)
+
+    def __len__(self):
+        return len(self._engine)

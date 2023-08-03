@@ -161,3 +161,6 @@ class LangChainEngine(Engine):
         res = [SearchResultEntity(text=item[0].page_content,
                                   metadata=item[0].metadata, score=float(item[1])) for item in docs]
         return res
+
+    def __len__(self):
+        return self.__langchain_faiss.index.ntotal
