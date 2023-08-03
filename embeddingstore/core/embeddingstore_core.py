@@ -199,3 +199,6 @@ class EmbeddingStoreCore:
     @LoggingUtils.log_event(__package__, StoreCoreEventNames.SAVE)
     def save(self):
         self.__store.save()
+
+    def __len__(self):
+        return self.__store.__len__()

@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="embeddingstore",
-    version="0.1.0",
+    version="0.1.1",
     author="C. Royer",
     author_email="",
     description="A fork of the embedding store python package by Microsoft",
