@@ -11,16 +11,18 @@ from ..logging.utils import LoggingUtils
 
 class RemoteBasedStore(LocalBasedStore):
 
-    def batch_insert_texts(self, texts: Iterable[str], metadatas: Optional[List[dict]] = None) -> None:
+    def batch_insert_texts(self, texts: Iterable[str], metadatas: Optional[List[dict]] = None, sync = False) -> None:
         super().batch_insert_texts(texts, metadatas)
-        self.__upload_to_remote()
+        if sync: self.__upload_to_remote()
 
     def batch_insert_texts_with_embeddings(self,
                                            texts: Iterable[str],
                                            embeddings: Iterable[List[float]],
-                                           metadatas: Optional[List[dict]] = None) -> None:
+                                           metadatas: Optional[List[dict]] = None,
+                                           sync = False) -> None:
         super().batch_insert_texts_with_embeddings(texts, embeddings, metadatas)
-        self.__upload_to_remote()
+        if sync: self.__upload_to_remote()
+
 
     def search_by_text(self, query_text: str, top_k: int = 5) -> List[SearchResultEntity]:
         return super().search_by_text(query_text, top_k)

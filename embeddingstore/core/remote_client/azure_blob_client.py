@@ -8,7 +8,7 @@ from azure.identity import DefaultAzureCredential
 from .remote_client import RemoteClient
 from ..utils.azure_helpers import AzureHelpers
 from ..contracts.exceptions import RemoteResourceAuthenticationException
-
+from threading import *
 
 class AzureBlobClient(RemoteClient):
 
@@ -61,8 +61,20 @@ class AzureBlobClient(RemoteClient):
 
     @AzureHelpers.map_azure_exceptions
     def upload(self):
+        # self.__upload()
+        T = Thread(target = self.__upload)
+ 
+        # change T to daemon
+        T.setDaemon(True)                  
+        
+        # starting of Thread T
+        T.start()
+
+    def __upload(self):
+        print("Upload started")
         for root, _, files in os.walk(self.__local_path):
             for file in files:
+                print(f"Upload file {file}")
                 local_path = os.path.join(root, file)
                 relative_path = os.path.relpath(local_path, self.__local_path)
                 blob_client = self.__get_blob(relative_path)
